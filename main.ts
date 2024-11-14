@@ -4,6 +4,9 @@ import qrcode from "qrcode-terminal";
 // Create a new client instance
 const client = new Client({
   authStrategy: new NoAuth(),
+  puppeteer: {
+    headless: true,
+  },
 });
 
 client.on("ready", () => {
@@ -22,7 +25,6 @@ client.on("message", async (message) => {
   if (chat.isGroup && !chat.archived) {
     const groupName = chat.name;
     const groupId = chat.id.user;
-    const serializedChatId = chat.id._serialized;
 
     // "120363150302477706" : Infinite
     // "120363347179159618" : Testing
