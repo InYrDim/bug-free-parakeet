@@ -1,9 +1,9 @@
-import { Client, LocalAuth } from "whatsapp-web.js";
+import { Client, NoAuth } from "whatsapp-web.js";
 import qrcode from "qrcode-terminal";
 
 // Create a new client instance
 const client = new Client({
-  authStrategy: new LocalAuth(),
+  authStrategy: new NoAuth(),
 });
 
 client.on("ready", () => {
